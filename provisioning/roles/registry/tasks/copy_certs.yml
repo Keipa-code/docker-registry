@@ -1,0 +1,24 @@
+---
+-   name: Create folder live/registry
+    file:
+      path: /etc/letsencrypt//live/registry
+      state: directory
+      owner: root
+      group: root
+      mode: 0755
+
+-   name: Copy ssl cert certificate
+    copy:
+      src: files/cert.pem
+      dest: /etc/letsencrypt//live/registry/cert.pem
+      owner: root
+      group: root
+      mode: 0644
+
+-   name: Copy ssl key certificate
+    copy:
+      src: files/key.pem
+      dest: /etc/letsencrypt//live/registry/key.pem
+      owner: root
+      group: root
+      mode: 0644
